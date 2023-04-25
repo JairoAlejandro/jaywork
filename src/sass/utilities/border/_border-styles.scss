@@ -1,0 +1,18 @@
+@use '../../helpers/class' as *;
+
+$styles:(
+    solid: solid,
+    dashed: dashed,
+    dotted: dotted,
+    double: double,
+    hidden: hidden,
+    none: none
+);
+
+$border-styles:(
+    prop: border-style,
+    class: border,
+    values: $styles
+);
+
+@include multiple-class($border-styles);

@@ -1,0 +1,19 @@
+@use '../../helpers/class' as *;
+
+$display:(
+    prop: display,
+    class: '',
+    values: (
+        none: none,
+        inline: inline, 
+        block: block, 
+        flex: flex, 
+        grid: grid, 
+        inline-block: inline-block, 
+        inline-grid: inline-grid, 
+        inline-flex: inline-flex,
+    )
+);
+
+@include multiple-class($display,$separator:'');
+@include responsive-class($display);

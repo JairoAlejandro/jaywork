@@ -1,0 +1,94 @@
+@use '../config/spacing' as *;
+@use '../helpers/class' as *;
+
+$spacing: (
+    (
+        prop: gap,
+        class: 'gap',
+        values: $spacers
+    ),
+    (
+        prop: column-gap,
+        class: 'gap-column',
+        values: $spacers
+    ),
+    (
+        prop: row-gap,
+        class: 'gap-row',
+        values: $spacers
+    ),
+    (
+        prop: margin,
+        class: 'm',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: margin-top margin-bottom,
+        class: 'my',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: margin-right margin-left,
+        class: 'mx',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: margin-right,
+        class: 'mr',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: margin-left,
+        class: 'ml',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: margin-top,
+        class: 'mt',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: margin-bottom,
+        class: 'mb',
+        values: map-merge($spacers, (auto:auto))
+    ),(
+        prop: padding,
+        class: 'p',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: padding-top padding-bottom,
+        class: 'py',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: padding-right padding-left,
+        class: 'px',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: padding-right,
+        class: 'pr',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: padding-left,
+        class: 'pl',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: padding-top,
+        class: 'pt',
+        values: map-merge($spacers, (auto:auto))
+    ),
+    (
+        prop: padding-bottom,
+        class: 'pb',
+        values: map-merge($spacers, (auto:auto))
+    ),
+);
+
+@each $prop in $spacing{
+    @include multiple-class($prop);
+    @include responsive-class($prop);
+}

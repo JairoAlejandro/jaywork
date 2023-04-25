@@ -1,0 +1,37 @@
+@use '../../config/colors' as *;
+@use '../../helpers/class' as *;
+
+$directions:( t: top, b: bottom, r: right, l: left );
+
+$border-color:(
+    (
+        prop: border-color,
+        class: border,
+        values: $all-colors
+    ),
+    (
+        prop: (border-top-color , border-bottom-color),
+        class: border-y,
+        values: $all-colors
+    ),
+    (
+        prop: (border-right-color , border-left-color),
+        class: border-x,
+        values: $all-colors
+    )
+);
+
+@each $class , $prop in $directions{
+
+    $map:(
+        prop: border-#{$prop}-color,
+        class: border-#{$class},
+        values: $all-colors
+    );
+
+    $border-color: append($border-color, $map);
+}
+
+@each $prop in $border-color{
+    @include multiple-class($prop);
+}

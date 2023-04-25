@@ -1,0 +1,37 @@
+@use './config' as *;
+@use '../../helpers/class' as *;
+$directions:( t: top, b: bottom, l: left, r: right );
+
+
+
+$border-width:(
+    (
+        prop: border-width,
+        class: border,
+        values: $border-values
+    ),
+    (
+        prop: ( border-top-width , border-bottom-width ),
+        class: border-y,
+        values: $border-values
+    ),
+    (
+        prop: ( border-left-width , border-right-width ),
+        class: border-x,
+        values: $border-values
+    )
+);
+
+@each $class, $prop in $directions{
+    $map:(
+        prop: border-#{$prop}-width,
+        class: border-#{$class},
+        values: $border-values
+    );
+
+    $border-width: append($border-width, $map);
+}
+
+@each $prop in $border-width{
+    @include multiple-class($prop);
+}

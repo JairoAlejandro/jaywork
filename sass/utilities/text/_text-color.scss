@@ -1,0 +1,11 @@
+@use '../../config/colors' as *;
+@use '../../helpers/class' as *;
+
+
+$text-color:(
+    prop: color,
+    class: 'text',
+    values:($all-colors)
+);
+
+@include multiple-class($text-color);

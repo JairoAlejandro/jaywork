@@ -1,0 +1,23 @@
+@use '../../helpers/class' as *;
+
+$size:(
+    prop: font-size,
+    class: 'fs',
+    values:(
+        12: 12px,
+        14: 14px,
+        16: 16px,
+        20: 20px,
+        22: 22px,
+        24: 24px,
+        32: 32px,
+        48: 48px,
+        52: 52px,
+        64: 64px,
+        72: 72px,
+        96: 96px,
+    )
+);
+
+@include multiple-class($size);
+@include responsive-class($size);

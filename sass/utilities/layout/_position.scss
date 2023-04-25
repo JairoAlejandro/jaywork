@@ -1,0 +1,60 @@
+@use '../../helpers/class' as *;
+@use '../../config/spacing' as *;
+
+$directions:(
+    (
+        prop: top,
+        class: 'top',
+        values: $spacers
+    ),
+    (
+        prop: bottom,
+        class: 'bottom',
+        values: $spacers
+    ),
+    (
+        prop: right,
+        class: 'right',
+        values: $spacers
+    ),
+    (
+        prop: left,
+        class: 'left',
+        values: $spacers
+    )
+);
+
+@each $dir in $directions{
+    $prop: map-get($dir, prop);
+    $class: map-get($dir, class);
+    $values: map-get($dir, values);
+    $negative-values:();
+
+    @each $name , $value in $values{
+        $negative-values: map-merge($negative-values, ($name: -#{$value}));
+    }
+
+    $negative-prop:(
+        prop: $prop,
+        class: -#{$class},
+        values: $negative-values,
+    );
+    
+    @include multiple-class($dir);
+    @include multiple-class($negative-prop);
+}
+
+$position:(
+    prop: position,
+    class: '',
+    values: (
+        static: static, 
+        fixed: fixed,
+        absolute: absolute,
+        relative: relative,
+        sticky: sticky
+    )
+);
+
+@include multiple-class($position);
+@include responsive-class($position);

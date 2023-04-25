@@ -1,0 +1,35 @@
+@use './config' as *;
+@use '../../config/breakpoints' as *;
+@use '../../config/spacing' as *;
+@use '../../helpers/class' as *;
+
+$values: (auto: auto);
+$span-values: (auto: auto);
+
+@for $i from 1 through $columns{
+    $values: map-merge($values,($i: $i));
+    $span-values: map-merge($span-values,($i: span $i '/' $i));
+}
+
+$grid-column:(
+    (
+        prop: grid-column,
+        class: 'col-span',
+        values: $span-values
+    ),
+    (
+        prop: grid-column-start,
+        class: 'col-start',
+        values: $values
+    ),
+    (
+        prop: grid-column-end,
+        class: 'col-end',
+        values: $values
+    )
+);
+
+@each $prop in $grid-column{
+    @include multiple-class($prop);
+    @include responsive-class($prop);
+}

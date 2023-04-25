@@ -1,0 +1,25 @@
+@use './spacing';
+@use './colors';
+
+@use './layout/display';
+@use './layout/flex';
+@use './layout/sizing';
+@use './layout/overflow';
+@use './layout/position';
+
+@use './border/border-radius';
+@use './border/border-width';
+@use './border/border-styles';
+@use './border/border-color';
+
+@use './text/font-family';
+@use './text/font-size';
+@use './text/font-weight';
+@use './text/text-transform';
+@use './text/text-color';
+@use './text/text-align';
+
+@use './grid/template-columns';
+@use './grid/template-rows';
+@use './grid/grid-row';
+@use './grid/grid-columns';

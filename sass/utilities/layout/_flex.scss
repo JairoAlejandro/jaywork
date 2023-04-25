@@ -1,0 +1,54 @@
+@use '../../helpers/class' as *;
+
+$flex:(
+    (
+        prop: flex-direction,
+        class: 'flex',
+        values: (
+            column: column,
+            row: row,
+            column-reverse: column-reverse,
+            row-reverse: row-reverse
+        )
+    ),
+    (
+        prop: justify-content,
+        class: 'justify',
+        values: (
+            start: start,
+            end: end,
+            left: left,
+            right: right,
+            center: center,
+            between: space-between,
+            around: space-around,
+            evenly: space-evenly
+        )
+    ),
+    (
+        prop: align-items,
+        class: 'align',
+        values: (
+            start: start,
+            end: end,
+            left: left,
+            right: right,
+            center: center
+        )
+    ),
+    (
+        prop: flex-wrap,
+        class: 'flex',
+        values: (
+            wrap: wrap,
+            wrap-reverse: wrap-reverse,
+            nowrap: nowrap
+        )
+    )
+);
+
+@each $prop in $flex{
+    @include multiple-class($prop);
+    @include responsive-class($prop);
+}
+

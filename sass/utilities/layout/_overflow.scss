@@ -1,0 +1,29 @@
+@use '../../helpers/class' as *;
+
+$values: (
+    hidden: hidden,
+    scroll: scroll,
+    auto: auto
+);
+
+$overflow:(
+    (
+        prop: overflow,
+        class: overflow,
+        values: $values
+    ),
+    (
+        prop: overflow-y,
+        class: overflow-y,
+        values: $values
+    ),
+    (
+        prop: overflow-x,
+        class: overflow-x,
+        values: $values
+    )
+);
+
+@each $prop in $overflow{
+    @include multiple-class($prop);
+}

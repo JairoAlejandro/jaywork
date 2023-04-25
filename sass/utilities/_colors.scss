@@ -1,6 +1,0 @@
-@use '../config/colors' as *;
-@use '../helpers/class' as *;
-
-@each $name, $color in $all-colors{
-    @include single-class(bg-#{$name},background-color,$color,$separator:'');
-}
